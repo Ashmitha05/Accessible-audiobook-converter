@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Audiobook Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="heading">Accessible Audiobook Converter</h1>
+
+    <!-- PDF Upload -->
+    <label for="fileInput" class="visually-hidden">Upload PDF File:</label>
+    <input type="file" id="fileInput" accept="application/pdf" />
+
+    <!-- Text Display -->
+    <textarea id="text" rows="10" placeholder="Uploaded PDF text will appear here..." readonly></textarea>
+
+    <!-- Voice Selection -->
+    <div class="button-group">
+      <h3>Select Voice Gender:</h3>
+      <button id="maleVoice" class="voice-button">Male</button>
+      <button id="femaleVoice" class="voice-button">Female</button>
+    </div>
+
+    <!-- Speed Adjustment -->
+    <div class="button-group">
+      <h3>Adjust Speed:</h3>
+      <button id="decreaseSpeed" class="speed-button">-</button>
+      <span id="speedDisplay">1.0x</span>
+      <button id="increaseSpeed" class="speed-button">+</button>
+    </div>
+
+    <button id="playButton" class="play-button">Play Audio</button>
+    <p id="errorMessage" class="error"></p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
