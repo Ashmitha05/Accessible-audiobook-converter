@@ -1,0 +1,32 @@
+import PyPDF2
+import pyttsx3
+
+engine = pyttsx3.init()
+
+def extract_text_from_pdf(pdf_file_path):
+    text = ""
+    with open(pdf_file_path, "rb") as file:
+        reader = PyPDF2.PdfReader(file)
+        for page in reader.pages:
+            text += page.extract_text()
+    return text
+
+def set_voice(gender='male', rate=200):
+    voices = engine.getProperty('voices')
+    if gender == 'male':
+        engine.setProperty('voice', voices[0].id)
+    else:
+        engine.setProperty('voice', voices[1].id)
+    engine.setProperty('rate', rate)
+
+def text_to_speech(text, gender='male', speed=1.0):
+    set_voice(gender=gender, rate=int(200 * speed))
+    engine.say(text)
+    engine.runAndWait()
+
+if __name__ == '__main__':
+    pdf_file_path = 'sample.pdf'
+    extracted_text = extract_text_from_pdf(pdf_file_path)
+    if extracted_text:
+        print("Text extracted successfully.")
+        text_to_speech(extracted_text, gender='female', speed=1.2)
