@@ -39,3 +39,5 @@ The project supports:
 - 🐍 Offline Python script for TTS from local files
 
   ## Output
+
+  <img width="681" height="607" alt="Image" src="https://github.com/user-attachments/assets/ada81880-2c00-4552-aa4b-447cdd9d7d62" />
